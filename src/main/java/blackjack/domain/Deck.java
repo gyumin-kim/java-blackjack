@@ -5,32 +5,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Deck {
-    private static LinkedList<Card> cards;
+    private final LinkedList<Card> cards;
 
-    public Deck(final LinkedList<Card> cards) {
-        Deck.cards = cards;
+    public Deck(final List<Card> cards) {
+        this.cards = new LinkedList<>(cards);
     }
 
-    public static Deck createShuffledCards() {
-        cards = new LinkedList<>();
-        for (final Denomination denomination : Denomination.values()) {
-            for (final Suit suit : Suit.values()) {
-                cards.add(new Card(denomination, suit));
-            }
-        }
-        shuffleCards();
+    public static Deck withShuffledCards() {
+        LinkedList<Card> cards = Card.getAllCards();
+        Collections.shuffle(cards);
         return new Deck(cards);
     }
 
-    public List<Card> getCards() {
-        return cards;
-    }
-
-    private static void shuffleCards() {
-        Collections.shuffle(cards);
-    }
-
     public Card draw() {
-        return cards.pop();
+        return this.cards.pop();
     }
 }

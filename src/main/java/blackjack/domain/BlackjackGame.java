@@ -5,7 +5,7 @@ import java.util.List;
 public class BlackjackGame {
     private final List<Player> players;
     private final Dealer dealer = new Dealer();
-    private final Deck deck = Deck.createShuffledCards();
+    private final Deck deck = Deck.withShuffledCards();
 
     public BlackjackGame(List<Player> players) {
         this.players = players;

@@ -9,31 +9,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DeckTest {
 
-    @DisplayName("52장의 카드를 포함한 덱 생성 테스트")
-    @Test
-    void createDeckTest() {
-        // given & when
-        Deck deck = Deck.createShuffledCards();
-
-        // then
-        assertThat(deck.getCards().size()).isEqualTo(52);
-    }
-
     @DisplayName("draw()를 호출하면 가장 앞의 Card를 꺼내온다")
     @Test
-    void drawTest() {
+    void draw() {
         // given
-        Deck deck = Deck.createShuffledCards();
-        List<Card> cards = deck.getCards();
-        Card firstCard = cards.get(0);
-        Card secondCard = cards.get(1);
+        List<Card> cards = List.of(
+                Card.of(Denomination.ACE, Suit.CLOVER),
+                Card.of(Denomination.NINE, Suit.HEART),
+                Card.of(Denomination.FIVE, Suit.DIAMOND),
+                Card.of(Denomination.FOUR, Suit.SPADE),
+                Card.of(Denomination.KING, Suit.HEART)
+        );
+        Deck deck = new Deck(cards);
 
         // when
-        Card card0 = deck.draw();
         Card card1 = deck.draw();
+        Card card2 = deck.draw();
 
         // then
-        assertThat(card0).isEqualTo(firstCard);
-        assertThat(card1).isEqualTo(secondCard);
+        assertThat(card1).isEqualTo(Card.of(Denomination.ACE, Suit.CLOVER));
+        assertThat(card2).isEqualTo(Card.of(Denomination.NINE, Suit.HEART));
     }
 }

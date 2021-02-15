@@ -23,7 +23,7 @@ public class DealerRecord {
         }
     }
 
-    public void winOrLose(int dealerScore, int playerScore) {
+    private void winOrLose(int dealerScore, int playerScore) {
         if (playerScore > 21 || (dealerScore > playerScore && dealerScore <= 21)) {
             win++;
             return;

@@ -5,6 +5,7 @@ import blackjack.dto.PlayerRecordView;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: add test
 public class PlayersRecord {
     private final Dealer dealer;
     private final List<Player> players;
@@ -26,7 +27,7 @@ public class PlayersRecord {
     }
 
     private String winOrLose(final int dealerScore, final int playerScore) {
-        if (playerScore < dealerScore || playerScore > 21) {
+        if ((playerScore < dealerScore && dealerScore <= 21) || playerScore > 21) {
             return "패";
         }
         if (playerScore == dealerScore) {
