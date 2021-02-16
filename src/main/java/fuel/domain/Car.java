@@ -1,8 +1,14 @@
 package fuel.domain;
 
-public interface Car {
+public abstract class Car {
 
-    String getName();
+    abstract double getDistancePerLiter();
 
-    double getChargeQuantity();
+    abstract String getName();
+
+    abstract double getDistance();
+
+    double getChargeQuantity() {
+        return getDistance() / getDistancePerLiter();
+    }
 }

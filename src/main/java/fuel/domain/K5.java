@@ -1,28 +1,28 @@
 package fuel.domain;
 
-public class K5 implements Car {
-    private final double distance;
-    private final double distancePerLiter = 13.0;
+public class K5 extends Car {
 
-    public K5(final double distance) {
+    private static final String MODEL_NAME = "K5";
+    private static final double DISTANCE_PER_LITER = 13.0;
+
+    private final int distance;
+
+    public K5(final int distance) {
         this.distance = distance;
     }
 
     @Override
-    public String getName() {
-        return "K5";
+    public double getDistancePerLiter() {
+        return DISTANCE_PER_LITER;
     }
 
     @Override
-    public double getChargeQuantity() {
-        return getDistance() / getDistancePerLiter();
+    public String getName() {
+        return MODEL_NAME;
     }
 
-    private double getDistance() {
+    @Override
+    public double getDistance() {
         return this.distance;
-    }
-
-    private double getDistancePerLiter() {
-        return this.distancePerLiter;
     }
 }
