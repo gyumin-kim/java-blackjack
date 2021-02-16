@@ -25,12 +25,9 @@ public class BlackjackController {
     private void printGameParticipantsCards() {
         Dealer dealer = blackjackGame.getDealer();
         List<Player> players = blackjackGame.getPlayers();
-
         OutputView.printInitializeDealMessage(dealer, players);
         OutputView.beforePrintCards(dealer);
-        for (Player player : players) {
-            OutputView.beforePrintCards(player);
-        }
+        players.forEach(OutputView::beforePrintCards);
         OutputView.printNewLine();
     }
 
@@ -59,6 +56,7 @@ public class BlackjackController {
         }
     }
 
+    // TODO: 복잡도 낮추기
     public void releaseResult() {
         Dealer dealer = blackjackGame.getDealer();
         List<Player> players = blackjackGame.getPlayers();
