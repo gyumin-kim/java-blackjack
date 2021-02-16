@@ -28,8 +28,8 @@ public class Card {
 
     public static Card of(final Denomination denomination, final Suit suit) {
         Optional<Card> cardOptional = Arrays.stream(CARDS)
-                .filter(card -> card.getDenomination() == denomination)
-                .filter(card -> card.getSuit() == suit)
+                .filter(card -> card.denomination == denomination)
+                .filter(card -> card.suit == suit)
                 .findAny();
         return cardOptional.orElseThrow(() -> new IllegalArgumentException("유효한 조합이 아닙니다."));
     }
