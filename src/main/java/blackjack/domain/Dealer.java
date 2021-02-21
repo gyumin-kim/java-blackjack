@@ -3,6 +3,7 @@ package blackjack.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 // TODO: GameParticipant 인터페이스 필요성에 대해 재검토
 public class Dealer implements GameParticipant {
@@ -22,12 +23,10 @@ public class Dealer implements GameParticipant {
      * @param players 1명 이상의 플레이어
      */
     public void dealsCardsInitially(final List<Player> players) {
-        for (Player player : players) {
-            player.hit(this.deck.draw());
-            player.hit(this.deck.draw());
-        }
-        this.cards.add(deck.draw());
-        this.cards.add(deck.draw());
+        IntStream.range(0, 2).forEach(i -> {
+            players.forEach(player -> player.hit(this.deck.draw()));
+            this.cards.add(deck.draw());
+        });
     }
 
     @Override

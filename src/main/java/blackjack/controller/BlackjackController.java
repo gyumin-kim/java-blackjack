@@ -13,7 +13,7 @@ import java.util.List;
 
 public class BlackjackController {
     private final Dealer dealer;
-    private final List<Player> players;
+    private final List<Player> players; // TODO: 일급 컬렉션 필요할지 고민
 
     private BlackjackController(final Dealer dealer, final List<Player> players) {
         this.dealer = dealer;
