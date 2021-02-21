@@ -58,8 +58,8 @@ public class OutputView {
         System.out.println(output.toString());
     }
 
-    public static void printDealerAddCardMessage() {
-        System.out.println("딜러는 16 이하라 한장의 카드를 더 받았습니다.");
+    public static void printDealerAddCardMessage(final int dealCount) {
+        System.out.println("딜러는 16 이하라 " + dealCount + "장의 카드를 더 받았습니다.");
         System.out.println();
     }
 

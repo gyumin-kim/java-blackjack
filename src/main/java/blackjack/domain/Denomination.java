@@ -1,6 +1,7 @@
 package blackjack.domain;
 
 public enum Denomination {
+    // TODO: A, J, Q, K는 알파벳으로 리턴하도록 수정
     ACE(1), // TODO: 1 or 11
     TWO(2),
     THREE(3),

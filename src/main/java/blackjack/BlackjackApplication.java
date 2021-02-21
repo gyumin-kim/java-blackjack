@@ -5,10 +5,9 @@ import blackjack.controller.BlackjackController;
 public class BlackjackApplication {
 
     public static void main(String[] args) {
-        BlackjackController blackjackController = new BlackjackController();
+        BlackjackController blackjackController = BlackjackController.init();
         blackjackController.start();
-        blackjackController.askHitOrStayToPlayers();
-        blackjackController.dealerTurn();
-        blackjackController.releaseResult();
+        blackjackController.play();
+        blackjackController.announceResult();
     }
 }
