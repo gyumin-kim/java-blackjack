@@ -30,11 +30,6 @@ public class Dealer implements GameParticipant {
     }
 
     @Override
-    public void hit(Card card) {
-        this.cards.add(card);
-    }
-
-    @Override
     public List<Card> getCardsBeforeGameStart() {
         return Collections.singletonList(this.cards.get(0));
     }

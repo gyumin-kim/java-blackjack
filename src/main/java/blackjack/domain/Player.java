@@ -30,11 +30,6 @@ public class Player implements GameParticipant {
     }
 
     @Override
-    public void hit(Card card) {
-        this.cards.add(card);
-    }
-
-    @Override
     public List<Card> getCardsBeforeGameStart() {
         return Arrays.asList(cards.get(0), cards.get(1));
     }
@@ -45,5 +40,9 @@ public class Player implements GameParticipant {
         return this.cards.stream()
                 .mapToInt(card -> card.getDenomination().getNumber())
                 .sum();
+    }
+
+    public void hit(Card card) {
+        this.cards.add(card);
     }
 }
