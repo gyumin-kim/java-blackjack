@@ -28,14 +28,14 @@ public class BlackjackController {
 
     public void start() {
         dealer.dealsCardsInitially(players);
-        OutputView.printNewLine();
         printGameParticipantsCards();
     }
 
     private void printGameParticipantsCards() {
+        OutputView.printNewLine();
         OutputView.printInitializeDealMessage(dealer, players);
-        OutputView.beforePrintCards(dealer);
-        players.forEach(OutputView::beforePrintCards);
+        OutputView.printInitialCards(dealer);
+        players.forEach(OutputView::printInitialCards);
         OutputView.printNewLine();
     }
 

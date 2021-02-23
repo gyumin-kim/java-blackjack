@@ -1,16 +1,12 @@
 package blackjack.view;
 
-import blackjack.domain.Card;
-import blackjack.domain.Dealer;
-import blackjack.domain.DealerRecord;
-import blackjack.domain.GameParticipant;
-import blackjack.domain.Player;
+import blackjack.domain.*;
 import blackjack.dto.PlayerRecordView;
 
 import java.util.List;
 
 public class OutputView {
-    public static void beforePrintCards(final GameParticipant participant) {
+    public static void printInitialCards(final GameParticipant participant) {
         String name = participant.getName();
         System.out.print(name + " 카드: ");
 
