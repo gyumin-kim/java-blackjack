@@ -40,23 +40,23 @@ public class BlackjackController {
     }
 
     public void play() {
-        for (final Player player : players) {
-            hitOrStay(player);
-        }
-        OutputView.printNewLine();
+        this.players.forEach(this::hitOrStay);
         int dealCount = dealer.dealHimself();
-        if (dealCount > 0) {
+        if (dealerTookAdditionalCards(dealCount)) {
             OutputView.printDealerAddCardMessage(dealCount);
         }
     }
 
+    // TODO: controller보다는 도메인 객체가 수행하는 것이 적절해 보임. (출력이 관건)
     private void hitOrStay(final Player player) {
-        final int BLACKJACK_CONDITION = 21;
-        while (player.getResult() < BLACKJACK_CONDITION && InputView.askMoreCard(player)) {
+        while (player.canHaveMoreCards() && InputView.askMoreCard(player)) {
             dealer.deal(player);
             OutputView.printCards(player);
-            OutputView.printNewLine();
         }
+    }
+
+    private boolean dealerTookAdditionalCards(final int dealCount) {
+        return dealCount > 0;
     }
 
     // TODO: 복잡도 낮추기

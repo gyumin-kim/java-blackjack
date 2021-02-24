@@ -1,6 +1,10 @@
 package blackjack.view;
 
-import blackjack.domain.*;
+import blackjack.domain.Card;
+import blackjack.domain.Dealer;
+import blackjack.domain.DealerRecord;
+import blackjack.domain.GameParticipant;
+import blackjack.domain.Player;
 import blackjack.dto.PlayerRecordView;
 
 import java.util.List;
@@ -34,6 +38,7 @@ public class OutputView {
         }
         cardsContent.delete(cardsContent.lastIndexOf(", "), cardsContent.length() - 1);
         System.out.print(cardsContent.toString());
+        System.out.println();
     }
 
     public static void printNewLine() {
@@ -55,6 +60,7 @@ public class OutputView {
     }
 
     public static void printDealerAddCardMessage(final int dealCount) {
+        System.out.println();
         System.out.println("딜러는 16 이하라 " + dealCount + "장의 카드를 더 받았습니다.");
         System.out.println();
     }

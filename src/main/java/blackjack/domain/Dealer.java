@@ -17,18 +17,6 @@ public class Dealer implements GameParticipant {
         this.deck = deck;
     }
 
-    /**
-     * 플레이어와 자신에게 deal(카드를 분배)한다.
-     *
-     * @param players 1명 이상의 플레이어
-     */
-    public void dealsCardsInitially(final List<Player> players) {
-        IntStream.range(0, 2).forEach(i -> {
-            players.forEach(player -> player.hit(this.deck.draw()));
-            this.cards.add(deck.draw());
-        });
-    }
-
     @Override
     public List<Card> getCardsBeforeGameStart() {
         return Collections.singletonList(this.cards.get(0));
@@ -61,8 +49,16 @@ public class Dealer implements GameParticipant {
         return score;
     }
 
-    public void deal(final Player player) {
-        player.hit(this.deck.draw());
+    /**
+     * 플레이어와 자신에게 deal(카드를 분배)한다.
+     *
+     * @param players 1명 이상의 플레이어
+     */
+    public void dealsCardsInitially(final List<Player> players) {
+        IntStream.range(0, 2).forEach(i -> {
+            players.forEach(player -> player.hit(this.deck.draw()));
+            this.cards.add(deck.draw());
+        });
     }
 
     public int dealHimself() {
@@ -72,5 +68,9 @@ public class Dealer implements GameParticipant {
             dealCount++;
         }
         return dealCount;
+    }
+
+    public void deal(final Player player) {
+        player.hit(this.deck.draw());
     }
 }

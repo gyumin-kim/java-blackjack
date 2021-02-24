@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Player implements GameParticipant {
+    private static final int BLACKJACK_CONDITION = 21;
+
     private final String name;
-    private List<Card> cards = new ArrayList<>();
+    private final List<Card> cards = new ArrayList<>();
 
     public Player(final String name) {
         validateNonEmptyName(name);
@@ -44,5 +46,9 @@ public class Player implements GameParticipant {
 
     public void hit(Card card) {
         this.cards.add(card);
+    }
+
+    public boolean canHaveMoreCards() {
+        return this.getResult() < BLACKJACK_CONDITION;
     }
 }
