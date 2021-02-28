@@ -13,7 +13,7 @@ import java.util.List;
 
 public class BlackjackController {
     private final Dealer dealer;
-    private final List<Player> players; // TODO: 일급 컬렉션 필요할지 고민
+    private final List<Player> players;
 
     private BlackjackController(final Dealer dealer, final List<Player> players) {
         this.dealer = dealer;
@@ -40,15 +40,14 @@ public class BlackjackController {
     }
 
     public void play() {
-        this.players.forEach(this::hitOrStay);
+        this.players.forEach(this::dealUntilPlayerSaysNo);
         int dealCount = dealer.dealHimself();
         if (dealerTookAdditionalCards(dealCount)) {
             OutputView.printDealerAddCardMessage(dealCount);
         }
     }
 
-    // TODO: controller보다는 도메인 객체가 수행하는 것이 적절해 보임. (출력이 관건)
-    private void hitOrStay(final Player player) {
+    private void dealUntilPlayerSaysNo(final Player player) {
         while (player.canHaveMoreCards() && InputView.askMoreCard(player)) {
             dealer.deal(player);
             OutputView.printCards(player);
