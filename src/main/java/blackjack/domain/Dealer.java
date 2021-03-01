@@ -34,19 +34,8 @@ public class Dealer implements GameParticipant {
 
     @Override
     public int getResult() {
-        int score = 0;
-        boolean hasAce = false;
-        for (Card card : cards) {
-            int cardNumber = card.getDenomination().getNumber();
-            score += cardNumber;
-            if (cardNumber == 1) {
-                hasAce = true;
-            }
-        }
-        if (hasAce && score + 10 <= 21) {
-            score += 10;
-        }
-        return score;
+        CardsJudge cardsJudge = new CardsJudge(this.cards);
+        return cardsJudge.sumAllNumbers();
     }
 
     /**

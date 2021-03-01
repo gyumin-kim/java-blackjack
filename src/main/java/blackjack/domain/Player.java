@@ -36,12 +36,10 @@ public class Player implements GameParticipant {
         return Arrays.asList(cards.get(0), cards.get(1));
     }
 
-    // TODO: ACE에 대한 판단 필요
     @Override
     public int getResult() {
-        return this.cards.stream()
-                .mapToInt(card -> card.getDenomination().getNumber())
-                .sum();
+        CardsJudge cardsJudge = new CardsJudge(this.cards);
+        return cardsJudge.sumAllNumbers();
     }
 
     public void hit(Card card) {
