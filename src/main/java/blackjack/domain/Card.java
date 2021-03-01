@@ -9,13 +9,17 @@ public class Card {
     private static final Card[] CARDS = new Card[TOTAL_NUMBER];
 
     static {
-        // TODO: 2-depth 문제 해결
         int i = 0;
         for (final Denomination denomination : Denomination.values()) {
-            for (final Suit suit : Suit.values()) {
-                CARDS[i++] = new Card(denomination, suit);
-            }
+            i = assignCard(i, denomination);
         }
+    }
+
+    private static int assignCard(int index, final Denomination denomination) {
+        for (final Suit suit : Suit.values()) {
+            CARDS[index++] = new Card(denomination, suit);
+        }
+        return index;
     }
 
     private final Denomination denomination;
