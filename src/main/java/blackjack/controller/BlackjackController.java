@@ -51,6 +51,7 @@ public class BlackjackController {
         while (player.canHaveMoreCards() && InputView.askMoreCard(player)) {
             dealer.deal(player);
             OutputView.printCards(player);
+            OutputView.printNewLine();
         }
     }
 
@@ -58,13 +59,8 @@ public class BlackjackController {
         return dealCount > 0;
     }
 
-    // TODO: 복잡도 낮추기
     public void announceResult() {
-        OutputView.printGameParticipantResultMessage(dealer);
-        for (Player player : players) {
-            OutputView.printGameParticipantResultMessage(player);
-        }
-
+        OutputView.printGameParticipantResultMessage(dealer, players);
         DealerRecord dealerRecord = new DealerRecord(dealer, players);
         OutputView.printDealerGameResult(dealerRecord);
         PlayersRecord playersRecord = new PlayersRecord(dealer, players);
