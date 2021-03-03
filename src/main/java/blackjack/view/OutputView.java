@@ -1,11 +1,11 @@
 package blackjack.view;
 
-import blackjack.domain.Card;
-import blackjack.domain.Dealer;
-import blackjack.domain.DealerRecord;
-import blackjack.domain.Participant;
-import blackjack.domain.Player;
-import blackjack.dto.PlayerRecordView;
+import blackjack.model.domain.Card;
+import blackjack.model.domain.Dealer;
+import blackjack.model.domain.DealerRecord;
+import blackjack.model.domain.Participant;
+import blackjack.model.domain.Player;
+import blackjack.model.dto.PlayerRecordView;
 
 import java.util.ArrayList;
 import java.util.List;

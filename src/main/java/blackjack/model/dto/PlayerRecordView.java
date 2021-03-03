@@ -1,4 +1,4 @@
-package blackjack.dto;
+package blackjack.model.dto;
 
 public class PlayerRecordView {
     private final String name;

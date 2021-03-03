@@ -1,4 +1,4 @@
-package blackjack.domain;
+package blackjack.model.domain;
 
 import java.util.Collections;
 import java.util.LinkedList;

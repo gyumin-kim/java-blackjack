@@ -1,4 +1,4 @@
-package blackjack.domain;
+package blackjack.model.domain;
 
 public enum Denomination {
     ACE(1, "A"),

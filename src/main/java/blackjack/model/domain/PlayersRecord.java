@@ -1,6 +1,6 @@
-package blackjack.domain;
+package blackjack.model.domain;
 
-import blackjack.dto.PlayerRecordView;
+import blackjack.model.dto.PlayerRecordView;
 
 import java.util.ArrayList;
 import java.util.List;
