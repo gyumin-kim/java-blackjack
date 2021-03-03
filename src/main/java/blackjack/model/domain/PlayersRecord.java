@@ -18,16 +18,16 @@ public class PlayersRecord {
     }
 
     private void createPlayerRecordViews() {
-        int dealerScore = dealer.getResult();
+        int dealerScore = dealer.getScore();
         for (final Player player : players) {
-            int playerScore = player.getResult();
+            int playerScore = player.getScore();
             String result = winOrLose(dealerScore, playerScore);
             playerRecordViews.add(new PlayerRecordView(player.getName(), result));
         }
     }
 
     private String winOrLose(final int dealerScore, final int playerScore) {
-        if ((playerScore < dealerScore && dealerScore <= 21) || playerScore > 21) {
+        if (playerScore > 21 || (playerScore < dealerScore && dealerScore <= 21)) {
             return "패";
         }
         if (playerScore == dealerScore) {

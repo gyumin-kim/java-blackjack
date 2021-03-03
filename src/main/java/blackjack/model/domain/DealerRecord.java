@@ -5,9 +5,9 @@ import java.util.List;
 public class DealerRecord {
     private final Dealer dealer;
     private final List<Player> players;
-    private int win = 0;
-    private int draw = 0;
-    private int lose = 0;
+    private int win;
+    private int draw;
+    private int lose;
 
     public DealerRecord(final Dealer dealer, final List<Player> players) {
         this.dealer = dealer;
@@ -16,23 +16,23 @@ public class DealerRecord {
     }
 
     public void createRecord() {
-        int dealerScore = dealer.getResult();
-        for (Player player : players) {
-            int playerScore = player.getResult();
-            winOrLose(dealerScore, playerScore);
-        }
+        int dealerScore = dealer.getScore();
+        players.stream()
+                .mapToInt(Player::getScore)
+                .forEach(playerScore -> winOrLose(dealerScore, playerScore));
     }
 
+    // TODO: PlayersScore의 winOrLose()와 비슷하므로 각각 따로 둘 필요 없을 듯
     private void winOrLose(int dealerScore, int playerScore) {
         if (playerScore > 21 || (dealerScore > playerScore && dealerScore <= 21)) {
-            win++;
+            this.win++;
             return;
         }
         if (dealerScore == playerScore && playerScore != 21) {
-            draw++;
+            this.draw++;
             return;
         }
-        lose++;
+        this.lose++;
     }
 
     public int getWin() {

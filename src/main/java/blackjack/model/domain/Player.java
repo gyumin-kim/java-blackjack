@@ -37,7 +37,7 @@ public class Player implements Participant {
     }
 
     @Override
-    public int getResult() {
+    public int getScore() {
         Cards cards = new Cards(this.cards);
         return cards.sumAllNumbers();
     }
@@ -47,6 +47,6 @@ public class Player implements Participant {
     }
 
     public boolean canHaveMoreCards() {
-        return this.getResult() < BLACKJACK_CONDITION;
+        return this.getScore() < BLACKJACK_CONDITION;
     }
 }

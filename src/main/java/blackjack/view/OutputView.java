@@ -72,7 +72,7 @@ public class OutputView {
         participants.addAll(players);
         for (final Participant participant : participants) {
             printCards(participant);
-            System.out.print("- 결과: " + participant.getResult());
+            System.out.print("- 결과: " + participant.getScore());
             System.out.println();
         }
         System.out.println();

@@ -33,7 +33,7 @@ public class Dealer implements Participant {
     }
 
     @Override
-    public int getResult() {
+    public int getScore() {
         Cards cards = new Cards(this.cards);
         return cards.sumAllNumbers();
     }
@@ -52,7 +52,7 @@ public class Dealer implements Participant {
 
     public int dealHimself() {
         int dealCount = 0;
-        while (getResult() < CRITERIA) {
+        while (getScore() < CRITERIA) {
             this.cards.add(deck.draw());
             dealCount++;
         }

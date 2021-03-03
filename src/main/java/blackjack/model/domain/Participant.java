@@ -10,5 +10,5 @@ public interface Participant {
 
     List<Card> getCards();
 
-    int getResult();
+    int getScore();
 }
