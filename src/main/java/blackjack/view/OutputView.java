@@ -3,7 +3,7 @@ package blackjack.view;
 import blackjack.domain.Card;
 import blackjack.domain.Dealer;
 import blackjack.domain.DealerRecord;
-import blackjack.domain.GameParticipant;
+import blackjack.domain.Participant;
 import blackjack.domain.Player;
 import blackjack.dto.PlayerRecordView;
 
@@ -30,7 +30,7 @@ public class OutputView {
         System.out.println(output.toString());
     }
 
-    public static void printInitialCards(final GameParticipant participant) {
+    public static void printInitialCards(final Participant participant) {
         String name = participant.getName();
         System.out.print(name + " 카드: ");
 
@@ -50,7 +50,7 @@ public class OutputView {
         System.out.println("딜러는 16 이하라 " + dealCount + "장의 카드를 더 받았습니다.");
     }
 
-    public static void printCards(final GameParticipant participant) {
+    public static void printCards(final Participant participant) {
         String name = participant.getName();
         System.out.print(name + " 카드: ");
 
@@ -65,14 +65,14 @@ public class OutputView {
         System.out.print(cardsContent.toString());
     }
 
-    public static void printGameParticipantResultMessage(final Dealer dealer, final List<Player> players) {
+    public static void printParticipantResultMessage(final Dealer dealer, final List<Player> players) {
         System.out.println();
-        List<GameParticipant> gameParticipants = new ArrayList<>();
-        gameParticipants.add(dealer);
-        gameParticipants.addAll(players);
-        for (final GameParticipant gameParticipant : gameParticipants) {
-            printCards(gameParticipant);
-            System.out.print("- 결과: " + gameParticipant.getResult());
+        List<Participant> participants = new ArrayList<>();
+        participants.add(dealer);
+        participants.addAll(players);
+        for (final Participant participant : participants) {
+            printCards(participant);
+            System.out.print("- 결과: " + participant.getResult());
             System.out.println();
         }
         System.out.println();

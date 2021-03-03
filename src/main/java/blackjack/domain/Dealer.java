@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
-// TODO: GameParticipant 인터페이스 필요성에 대해 재검토
-public class Dealer implements GameParticipant {
+// TODO: Participant 인터페이스 필요성에 대해 재검토
+public class Dealer implements Participant {
     private static final String NAME = "딜러";
     private static final int CRITERIA = 17;
 

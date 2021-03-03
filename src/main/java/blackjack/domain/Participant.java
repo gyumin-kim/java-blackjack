@@ -2,8 +2,7 @@ package blackjack.domain;
 
 import java.util.List;
 
-// TODO: rename class
-public interface GameParticipant {
+public interface Participant {
 
     List<Card> getCardsBeforeGameStart();
 

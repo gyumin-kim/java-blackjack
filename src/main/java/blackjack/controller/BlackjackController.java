@@ -28,10 +28,10 @@ public class BlackjackController {
 
     public void start() {
         dealer.dealsCardsInitially(players);
-        printGameParticipantsCards();
+        printParticipantsCards();
     }
 
-    private void printGameParticipantsCards() {
+    private void printParticipantsCards() {
         OutputView.printNewLine();
         OutputView.printInitializeDealMessage(dealer, players);
         OutputView.printInitialCards(dealer);
@@ -60,7 +60,7 @@ public class BlackjackController {
     }
 
     public void announceResult() {
-        OutputView.printGameParticipantResultMessage(dealer, players);
+        OutputView.printParticipantResultMessage(dealer, players);
         DealerRecord dealerRecord = new DealerRecord(dealer, players);
         OutputView.printDealerGameResult(dealerRecord);
         PlayersRecord playersRecord = new PlayersRecord(dealer, players);

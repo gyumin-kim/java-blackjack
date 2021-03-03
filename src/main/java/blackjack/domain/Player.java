@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Player implements GameParticipant {
+public class Player implements Participant {
     private static final int BLACKJACK_CONDITION = 21;
 
     private final String name;
