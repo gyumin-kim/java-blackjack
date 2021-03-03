@@ -34,8 +34,8 @@ public class Dealer implements Participant {
 
     @Override
     public int getResult() {
-        CardsJudge cardsJudge = new CardsJudge(this.cards);
-        return cardsJudge.sumAllNumbers();
+        Cards cards = new Cards(this.cards);
+        return cards.sumAllNumbers();
     }
 
     /**

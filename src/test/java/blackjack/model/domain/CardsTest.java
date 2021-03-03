@@ -7,17 +7,16 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class CardsJudgeTest {
+class CardsTest {
 
     @DisplayName("Card들의 모든 수를 합산한 결과 계산")
     @Test
     void sumAllNumbers() {
         // given
-        List<Card> cards = createCards();
-        CardsJudge cardsJudge = new CardsJudge(cards);
+        Cards cards = new Cards(createCards());
 
         // when
-        int score = cardsJudge.sumAllNumbers();
+        int score = cards.sumAllNumbers();
 
         // then
         assertThat(score).isEqualTo(21);
@@ -27,11 +26,10 @@ class CardsJudgeTest {
     @Test
     void hasAce() {
         // given
-        List<Card> cards = createCards();
-        CardsJudge cardsJudge = new CardsJudge(cards);
+        Cards cards = new Cards(createCards());
 
         // when
-        boolean hasAce = cardsJudge.hasAce();
+        boolean hasAce = cards.hasAce();
 
         // then
         assertThat(hasAce).isTrue();

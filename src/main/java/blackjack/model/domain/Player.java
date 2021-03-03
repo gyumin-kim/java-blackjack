@@ -38,8 +38,8 @@ public class Player implements Participant {
 
     @Override
     public int getResult() {
-        CardsJudge cardsJudge = new CardsJudge(this.cards);
-        return cardsJudge.sumAllNumbers();
+        Cards cards = new Cards(this.cards);
+        return cards.sumAllNumbers();
     }
 
     public void hit(Card card) {
